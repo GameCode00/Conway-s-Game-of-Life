@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto Mono"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/b08b6de27e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+
+    <link rel="icon" href="./images/glider-icon.png" type="image/gif" />
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+    <meta
+      name="description"
+      content="Explore Conway's Game of Life, a fascinating cellular automaton created by mathematician John Horton Conway in 1970. Dive into the eternal patterns and captivating simulations at Eternal Game of Life."/>
+    <meta
+      name="keywords"
+      content="Conway's Game of Life, cellular automaton, John Horton Conway, 1970,Conway's Game of Life, cellular automaton, John Horton Conway, 1970, eternal game of life, game of life patterns, life simulation, mathematical game, game of life rules, Conway game, interactive game of life, game of life website, play Conway's Game of Life, online game of life, Conway automaton, game of life examples, cellular automaton game, game of life history, Conway game simulator, eternal patterns in life. "/>
+      <meta name="author" content="Shrihari Magar">
+      <meta name="title" content="Eternal Game of Life">
+      <meta name='URL' content='https://eternalgameoflife.netlify.app/'>
+      <meta name='identifier-URL' content='https://eternalgameoflife.netlify.app/'>
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="bingbot" content="index, follow" />
+
+      <!-- Open Graph -->
+       <meta property="og:title" content="Eternal Game of Life" />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content='https://eternalgameoflife.netlify.app/' />
+      <meta property="og:description"
+        content="Explore Conway's Game of Life, a fascinating cellular automaton created by mathematician John Horton Conway in 1970. Dive into the eternal patterns and captivating simulations at Eternal Game of Life." />  
+      <meta property="og:image" content="https://github.com/EternoSeeker/gameoflife/blob/main/images/glider-icon.png">    
+      
+
+      <title>Conway's Game of Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.js"
+      integrity="sha512-docBEeq28CCaXCXN7cINkyQs0pRszdQsVBFWUd+pLNlEk3LDlSDDtN7i1H+nTB8tshJPQHS0yu0GW9YGFd/CRg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"
+      integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+      integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+      integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"
+      integrity="sha512-aNMyYYxdIxIaot0Y1/PLuEu3eipGCmsEUBrUq+7aVyPGMFH8z0eTP0tkqAvv34fzN6z+201d3T8HPb1svWSKHQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.js"
+      integrity="sha512-FSNQjUUq97PtDnAJyMlBTH8EhV4o5X5FLVbzS9ttrdEVVbmrssJBh/PgXFQbxS+6yYx5n5irOj7de6Th0TRQZA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YetnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/introduction.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./css/sweet-alert.css" />
+    <style>
+      ul {
+        list-style-type: none;
+      }
+    </style>
+    <!--Preloade-->
+    <style>
+      /*Preloader CSS*/
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        transition: opacity 2s ease-out, visibility 2s ease-out;
+        opacity: 1;
+        visibility: visible;
+        z-index: 9999;
+      }
+
+      #preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      #loader {
+        display: block;
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #55a5ea;
+        animation: spin 3s linear infinite;
+      }
+
+      #loader:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #3fbcc0c6;
+        animation: spin 3s linear infinite;
+      }
+
+      #loader:after {
+        content: "";
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #fff;
+        animation: spin 1.5s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <!--Cursor-->
+    <style>
+      .circle {
+        z-index: 10000;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: colors 5s infinite;
+        position: fixed;
+        transform: translate(-50%, -50%);
+      }
+      .circle::before {
+        content: "";
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        opacity: 0.2;
+        transform: translate(-30%, -30%);
+        border-radius: 50%;
+      }
+    </style>
+    <script>
+      function redirectToReadme() {
+        window.location.href =
+          "https://github.com/EternoSeeker/gameoflife/blob/main/README.md";
+      }
+      function redirectToFeedback() {
+        window.location.href = "feedback.html";
+      }
+      function redirectToFAQ() {
+        window.location.href = "faq.html";
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="canvas-links">
+      <a href="https://twitter.com" target="_blank"><img src="../pic/x.jpg" class="x"  alt=""></a>
+      <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank"><img src="../pic/wikipedia.png" alt=""></a>
+    </div>
+  
+  <style>
+  
+      img{
+              height: 40px;
+              width: 40px;
+              transition: all 1s;
+              cursor: pointer;
+              border-radius: 50%;
+              vertical-align: middle;
+          
+              
+          }
+  
+          img:hover{
+              height: 60px;
+              width: 60px;
+              
+          }
+  
+          .x{
+              width: 35px;
+              height: 35px;
+          }
+      /* Canvas Styling */
+      canvas {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 1; /* Ensures canvas is below the links */
+      }
+  
+      /* Hyperlink container styling */
+      #canvas-links {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          z-index: 2; /* Ensures links are above the canvas */
+          font-size: 20px;
+          font-family: Arial, sans-serif;
+      }
+  
+      /* Hyperlink styling */
+      #canvas-links a {
+          display: block;
+          margin: 10px 0;
+          text-decoration: none;
+          color: blue;
+          font-weight: bold;
+      }
+  
+      #canvas-links a:hover {
+          color: green;
+      }
+  </style>
+    
+    <div class="circle-container">
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 1"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.95"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.9"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.9"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 1"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.95"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.9"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.9"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 1"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.95"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.9"
+      ></div>
+      <div
+        class="circle"
+        style="background-color: #55a5ea; left: 504px; top: 59px; scale: 0.9"
+      ></div>
+    </div>
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
+  <div class="introduction-series" id="intro-series">
+      <div class="intro-page" id="page1">
+        <div class="popup" id="popup1">   
+          <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+          <div class="intro-head">Welcome</div>
+          <div class="intro-content"> Let's get started with Conway's game of life!</div>
+          <div class="bottom-btns">
+            <button class="intro-bottom-btn" id="pop-skip" onclick="closeIntroSeries()">Skip</button>
+            <button class="intro-bottom-btn" id="pop-next" onclick="showBox(2)">Next</button>
+          </div>
+          <div class="bottom-symbols">
+            <button class="symbolintro" onclick="closeIntroSeries()"><i class="fa-solid fa-forward"></i></button>
+            <button class="symbolintro" onclick="showBox(2)"><i class="fa-solid fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+    <div class="intro-page" id="page2">
+      <div class="popup" id="popup2">   
+        <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+        <div class="intro-head">Grid</div>
+        <div class="intro-content">Click on a cell in the grid to toggle between dead and alive state.</div>
+        <div class="bottom-btns">
+          <button class="intro-bottom-btn" id="pop-skip" onclick="closeIntroSeries()">Skip</button>
+          <button class="intro-bottom-btn" id="pop-prev" onclick="showBox(1)">Prev</button>
+          <button class="intro-bottom-btn" id="pop-next" onclick="showBox(3)">Next</button>
+        </div>
+        <div class="bottom-symbols">
+          <button class="symbolintro" onclick="closeIntroSeries()"><i class="fa-solid fa-forward"></i></button>
+          <button class="symbolintro" onclick="showBox(1)" id="prev-symbol"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="symbolintro" onclick="showBox(3)"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="intro-page" id="page3">
+      <div class="popup" id="popup3">   
+        <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+        <div class="intro-head">Speed settings</div>
+        <div class="intro-content">Increase or decrease the speed of the simulation from these buttons</div>
+        <div class="bottom-btns">
+          <button class="intro-bottom-btn" id="pop-skip" onclick="closeIntroSeries()">Skip</button>
+          <button class="intro-bottom-btn" id="pop-prev" onclick="showBox(2)">Prev</button>
+          <button class="intro-bottom-btn" id="pop-next" onclick="showBox(4)">Next</button>
+        </div>
+        <div class="bottom-symbols">
+          <button class="symbolintro" onclick="closeIntroSeries()"><i class="fa-solid fa-forward"></i></button>
+          <button class="symbolintro" onclick="showBox(2)" id="prev-symbol"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="symbolintro" onclick="showBox(4)"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="intro-page" id="page4">
+      <div class="popup" id="popup4">   
+        <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+        <div class="intro-head">Random</div>
+        <div class="intro-content">Randomly make a certain percentage of the grid alive</div>
+        <div class="bottom-btns">
+          <button class="intro-bottom-btn" id="pop-skip" onclick="closeIntroSeries()">Skip</button>
+          <button class="intro-bottom-btn" id="pop-prev" onclick="showBox(3)">Prev</button>
+          <button class="intro-bottom-btn" id="pop-next" onclick="showBox(5)">Next</button>
+        </div>
+        <div class="bottom-symbols">
+          <button class="symbolintro" onclick="closeIntroSeries()"><i class="fa-solid fa-forward"></i></button>
+          <button class="symbolintro" onclick="showBox(3)" id="prev-symbol"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="symbolintro" onclick="showBox(5)"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="intro-page" id="page5">
+      <div class="popup" id="popup5">   
+        <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+        <div class="intro-head">Grid height</div>
+        <div class="intro-content">Specify the number of tiles in the height of the grid</div>
+        <div class="bottom-btns">
+          <button class="intro-bottom-btn" id="pop-skip" onclick="closeIntroSeries()">Skip</button>
+          <button class="intro-bottom-btn" id="pop-prev" onclick="showBox(4)">Prev</button>
+          <button class="intro-bottom-btn" id="pop-next" onclick="showBox(6)">Next</button>
+        </div>
+        <div class="bottom-symbols">
+          <button class="symbolintro" onclick="closeIntroSeries()"><i class="fa-solid fa-forward"></i></button>
+          <button class="symbolintro" onclick="showBox(4)" id="prev-symbol"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="symbolintro" onclick="showBox(6)"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="intro-page" id="page6">
+      <div class="popup" id="popup6">   
+        <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+        <div class="intro-head">Settings</div>
+        <div class="intro-content">Change more specifications of the game like randomness of the simulation here </div>
+        <div class="bottom-btns">
+          <button class="intro-bottom-btn" id="pop-skip" onclick="closeIntroSeries()">Skip</button>
+          <button class="intro-bottom-btn" id="pop-prev" onclick="showBox(5)">Prev</button>
+          <button class="intro-bottom-btn" id="pop-next" onclick="showBox(7)">Next</button>
+        </div>
+        <div class="bottom-symbols">
+          <button class="symbolintro" onclick="closeIntroSeries()"><i class="fa-solid fa-forward"></i></button>
+          <button class="symbolintro" onclick="showBox(5)" id="prev-symbol"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="symbolintro" onclick="showBox(7)"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="intro-page" id="page7">
+      <div class="popup" id="popup7">   
+        <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+        <div class="intro-head">Presets</div>
+        <div class="intro-content">Discover preset arrangements and run them in the simulation</div>
+        <div class="bottom-btns">
+          <button class="intro-bottom-btn" id="pop-skip" onclick="closeIntroSeries()">Skip</button>
+          <button class="intro-bottom-btn" id="pop-prev" onclick="showBox(6)">Prev</button>
+          <button class="intro-bottom-btn" id="pop-next" onclick="showBox(8)">Next</button>
+        </div>
+        <div class="bottom-symbols">
+          <button class="symbolintro" onclick="closeIntroSeries()"><i class="fa-solid fa-forward"></i></button>
+          <button class="symbolintro" onclick="showBox(6)" id="prev-symbol"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="symbolintro" onclick="showBox(8)"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="intro-page" id="page8">
+      <div class="popup" id="popup8">   
+        <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+        <div class="intro-head">Start/Pause</div>
+        <div class="intro-content">After you are satisfied with the pattern on grid, press this button to start the simulation</div>
+        <div class="bottom-btns">
+          <button class="intro-bottom-btn" id="pop-skip" onclick="closeIntroSeries()">Skip</button>
+          <button class="intro-bottom-btn" id="pop-prev" onclick="showBox(7)">Prev</button>
+          <button class="intro-bottom-btn" id="pop-next" onclick="showBox(9)">Next</button>
+        </div>
+        <div class="bottom-symbols">
+          <button class="symbolintro" onclick="closeIntroSeries()"><i class="fa-solid fa-forward"></i></button>
+          <button class="symbolintro" onclick="showBox(7)" id="prev-symbol"><i class="fa-solid fa-arrow-left"></i></button>
+          <button class="symbolintro" onclick="showBox(9)"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+      <div class="intro-page" id="page9">
+        <div class="popup" id="popup9">   
+        <!-- end wale ka code, beech mein aur daalna -->
+          <span class="popup-cross" onclick="closeIntroSeries()">X</span>
+          <div class="intro-head">End</div>
+          <div class="intro-content">Now youre all set and ready. Have fun!</div>
+          <div class="bottom-btn-end">
+            <button class="intro-bottom-btn" id="pop-end" onclick="closeIntroSeries()">Start</button>
+          </div>
+        </div>
+    </div>
+    </div>
+    <div class="game-settings">
+      <button id="toggleButton"><i class="fa-solid fa-bars"></i></button>
+      <div class="sidenav" id="sideNav">
+        <div class="other-settings animate" class="hov"><i class="fa-solid fa-gear"></i> Settings</div>
+        <div class="cross">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="16"
+            height="16"
+            color="#ffffff"
+            fill="none"
+          >
+            <path
+              d="M19.0005 4.99988L5.00045 18.9999M5.00045 4.99988L19.0005 18.9999"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <div class="other-settings-container animate">
+          <div class="toggle-item">
+            <label for="grid-toggle" class="toggle-label">
+              <span class="toggle-switch">
+                <input type="checkbox" checked id="grid-toggle" class="toggle-input" onchange="toggleGrid()">
+                <span class="toggle-slider"></span>
+              </span>
+              <span class="toggle-text">Gridlines</span>
+            </label>
+          </div>
+
+          <div class="toggle-item">
+            <label for="warp-on-edges" class="toggle-label">
+              <span class="toggle-switch">
+                <input type="checkbox" checked id="warp-on-edges" class="toggle-input" onchange="toggleWarp()">
+                <span class="toggle-slider"></span>
+              </span>
+              <span class="toggle-text">Warp on Edges</span>
+            </label>
+          </div>
+          
+          <div class="toggle-item">
+            <label for="music-toggle" class="toggle-label">
+              <span class="toggle-switch">
+                <input type="checkbox" id="music-toggle" class="toggle-input" onchange="toggleMusic()">
+                <span class="toggle-slider"></span>
+              </span>
+              <span class="toggle-text">Music</span>
+            </label>
+          </div>
+          
+          <p class="randomness-container">
+            <label class="randomness-value" style="cursor: pointer"
+              ><span class="hov">Randomness</span>
+              <span><span id="randomValOutput">20</span>%</span>
+            </label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="20"
+              class="range"
+              id="randomVal"
+            />
+          </p>
+        </div>
+        <div class="color-themes has-dropdown animate" style="cursor: pointer">
+          <i class="fa-solid fa-palette"></i> Themes
+        </div>
+        <div class="themes-container animate">
+          <ul>
+            <li>
+              <div>
+                <input
+                  type="radio"
+                  class="color-label"
+                  id="red-theme"
+                  name="theme"
+                  onclick="selectTheme('red')"
+                />
+                <label for="red-theme" class="color-label">Red</label>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <input
+                  type="radio"
+                  class="color-label"
+                  id="green-theme"
+                  name="theme"
+                  onclick="selectTheme('green')"
+                />
+                <label
+                  for="green-theme"
+                  class="color-label"
+                  style="cursor: pointer"
+                  >Green</label
+                >
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <input
+                  checked
+                  type="radio"
+                  class="color-label"
+                  id="blue-theme"
+                  name="theme"
+                  onclick="selectTheme('blue')"
+                />
+                <label
+                  for="blue-theme"
+                  class="color-label"
+                  style="cursor: pointer"
+                  >Blue</label
+                >
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <input
+                  type="radio"
+                  class="color-label"
+                  id="purple-theme"
+                  name="theme"
+                  onclick="selectTheme('purple')"
+                />
+                <label
+                  for="purple-theme"
+                  class="color-label"
+                  style="cursor: pointer"
+                  >Purple</label
+                >
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <input
+                  type="radio"
+                  class="color-label"
+                  id="darkcyan-theme"
+                  name="theme"
+                  onclick="selectTheme('darkCyan')"
+                />
+                <label
+                  for="darkcyan-theme"
+                  class="color-label"
+                  style="cursor: pointer"
+                  >Dark Cyan</label
+                >
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <input
+                  type="radio"
+                  id="black-theme"
+                  class="color-label"
+                  name="theme"
+                  onclick="selectTheme('black')"
+                />
+                <label
+                  for="black-theme"
+                  class="color-label"
+                  style="cursor: pointer"
+                  >Black & White</label
+                >
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <input
+                  type="radio"
+                  id="neon-theme"
+                  class="color-label"
+                  name="theme"
+                  onclick="selectTheme('neon')"
+                />
+                <label for="neon-theme" class="color-label">Dark Neon</label>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <input
+                  type="radio"
+                  id="cyberpunk-theme"
+                  class="color-label"
+                  name="theme"
+                  onclick="selectTheme('cyberpunk')"
+                />
+                <label for="cyberpunk-theme" class="color-label"
+                  >Cyberpunk</label
+                >
+              </div>
+            </li>
+          </ul>
+
+          <!-- new theme sunset -->
+          <ul>
+            <li>
+              <div>
+                <input
+                  type="radio"
+                  class="color-label"
+                  id="sunset-theme"
+                  name="theme"
+                  onclick="selectTheme('sunset')"
+                />
+                <label for="sunset-theme" class="color-label"
+                  >Sunset</label
+                >
+              </div>
+            </li>
+          </ul>          
+
+          <div>
+            <button id="custom-theme-btn" class="has-dropdown animate">
+              Switch to Custom Theme
+            </button>
+            <div id="custom-colors-container" style="display: none">
+              <div class="custom-settings-container animate">
+                <label for="primary-color">Primary Text:</label>
+                <input type="color" id="primary-color" value="#0f045a" />
+                <label for="theme-color1">Secondary Text:</label>
+                <input type="color" id="theme-color1" value="#7582b2" />
+                <label for="theme-color2">Text Highlight:</label>
+                <input type="color" id="theme-color2" value="#036c96" />
+                <label for="theme-color3">Text Bubble:</label>
+                <input type="color" id="theme-color3" value="#ebf2ff" />
+                <label for="shadow-color1">Primary Shadow:</label>
+                <input type="color" id="shadow-color1" value="#352a7e" />
+                <label for="border-color1">Navbar Colour:</label>
+                <input type="color" id="border-color1" value="#080126" />
+                <label for="shadow-color2">Navbar Highlight:</label>
+                <input type="color" id="shadow-color2" value="#101536" />
+                <label for="background-col">Background Color:</label>
+                <input type="color" id="background-col" value="#c6cede" />
+                <label for="scrollbar-color">Scrollbar Color:</label>
+                <input type="color" id="scrollbar-color" value="#77bdec" />
+                <label for="alive-color">Alive Cell:</label>
+                <input type="color" id="alive-color" value="#00246B" />
+                <label for="dead-color">Dead Cell:</label>
+                <input type="color" id="dead-color" value="#CADCFC" />
+              </div>
+              <button id="apply-custom-theme-btn" class="custom-button">
+                Apply Theme
+              </button>
+              <button id="reset-theme-btn" class="custom-button">
+                Reset to Default
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <button id="gradient-theme-btn" class="has-dropdown animate">
+              Switch to Gradient Theme
+            </button>
+            <div id="gradient-colors-container" style="display: none">
+              <div class="gradient-settings-container animate">
+                <label for="Color 1 :">Color 1 :</label>
+                <input type="color" id="color1" value="#ff7e5f" />
+                <label for="Color 2 :">Color 2 :</label>
+                <input type="color" id="color2" value="#feb47b" />
+                <p>Gradient Direction: <span id="angleValue">180</span>°</p>
+                <input
+                  type="range"
+                  id="slopeSlider"
+                  min="0"
+                  max="360"
+                  class="range"
+                  value="180"
+                />
+              </div>
+              <button id="apply-gradient-btn" class="gradient-button">
+                Apply Gradient
+              </button>
+              <button id="remove-gradient-btn" class="gradient-button">
+                Remove Gradient
+              </button>
+              <button id="remove-cell-color-btn" class="gradient-button">
+                Reset Cell Colors
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="presets has-dropdown animate" style="cursor: pointer">
+          <i class="fa-solid fa-list"></i> Presets
+        </div>
+        <div class="presets-container animate">
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('GliderGun')"
+              >
+                <i class="fa-solid fa-gun"></i> Glider Gun
+              </button>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('smallGlider')"
+              >
+                <i class="fa-brands fa-glide"></i>
+                Small Glider
+              </button>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('bigGlider')"
+              >
+                <i class="fa-brands fa-glide-g"></i>
+                Big Glider
+              </button>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('Pulsar')"
+              >
+                <i class="fa-solid fa-stairs"></i>
+                Pulsar
+              </button>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('CircleOfFire')"
+              >
+                <i class="fa-solid fa-circle-plus"></i>
+                Circle of Fire
+              </button>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('Quadpole')"
+              >
+                <i class="fa-solid fa-bolt"></i>
+                Quadpole
+              </button>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('Spider')"
+              >
+                <i class="fa-solid fa-spider"></i>
+                Spider
+              </button>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('MiddleweightSpaceship')"
+              >
+                <i class="fa-solid fa-rocket"></i>
+               Spaceship
+              </button>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <button
+                class="presets-list"
+                onclick="drawPresetPattern('Boat-Tie')"
+              >
+                <i class="fa-solid fa-sailboat"></i>
+               Boat-Tie
+              </button>
+            </li>
+          </ul>
+          <!-- adding new presets -->
+          <ul>
+            <li>
+              <button class="presets-list" onclick="drawPresetPattern('Pentadecathlon')">
+                <i class="fa-solid fa-solar-panel"></i> Pentadecathlon
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div class="history has-dropdown animate" style="cursor: pointer">
+          <i class="fa-solid fa-clock"></i> History
+        </div>
+  <!-----game rules-------------------------------------------------------->
+  <style>
+    /* Basic styling for the popup */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 800px;
+      height: auto;
+      max-height: 90vh;
+      overflow-y: auto;
+      color: black;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.95); /* Translucent background */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      border-radius: 10px;
+    }
+
+    /* Dark background behind the popup */
+    #popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* Close button style */
+    .close-btn {
+      position: absolute;
+      top: 14px;
+      right: 17px;
+      cursor: pointer;
+      color: black;
+      font-size: 1.5rem;
+    }
+
+   
+    .button1:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      #popup {
+        width: 95%;
+        padding: 10px;
+      }
+
+      .close-btn {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Ensure a smooth transition */
+    #popup, #popup-overlay {
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-rules has-dropdown animate">
+    <button
+      class="game-rules has-dropdown"
+      style="margin-left: -1.7rem; cursor: pointer"
+      id="game-rules-btn"
+    >
+      <i class="fa-solid fa-chess"></i> Game Rules
+    </button>
+  </div>
+
+  <!-- Popup Overlay -->
+  <div id="popup-overlay"></div>
+
+  <!-- Popup Content -->
+  <div id="popup">
+    <i class="fa-solid fa-times close-btn" id="close-btn"></i>
+    <h2>Game Rules</h2>
+    <p>Here are the basic rules of the game...</p> 
+    <h4>How To Play?</h4>
+    <hr />
+    <p>Conway's Game of Life, or simply "Life," is a cellular automaton devised by British mathematician John Horton Conway in 1970.
+      It is a zero-player game, meaning its evolution is determined by its initial state, requiring no further input. Players interact with 
+      the game by creating an initial configuration and observing how it evolves. The game is Turing complete and can simulate a 
+      universal constructor or any other Turing machine.</p>
+    <hr />
+    <h4>The Universe</h4>
+    <p>The universe of the Game of Life is an infinite, two-dimensional orthogonal grid of square cells,
+      Each cell is in one of two possible states, ALIVE or DEAD.
+      Every cell interacts with its eight neighbors, which are the cells that are horizontally, vertically, or diagonally adjacent.</p>
+    <hr />
+    <h4>Rules</h4>
+    <ol>
+      <li>Any live cell with fewer than two live neighbors dies, as if by underpopulation.</li>
+      <li>Any live cell with two or three live neighbors lives on to the next generation.</li>
+      <li>Any live cell with more than three live neighbors dies, as if by overpopulation.</li>
+      <li>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.</li>
+    </ol>
+    <p>The first generation is created by applying the above rules simultaneously to every cell in the seed, alive or dead; births and
+      deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick. Each generation is a pure function
+      of the preceding one.</p>
+    <button class="button1" id="more-btn" style="margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    margin-left: 44%;
+    width: 87px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;">More</button>
+  </div>
+
+  <script>
+    const popup = document.getElementById('popup');
+    const popupOverlay = document.getElementById('popup-overlay');
+    const gameRulesBtn = document.getElementById('game-rules-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const moreBtn = document.getElementById('more-btn');
+    
+    // Function to show the popup
+    gameRulesBtn.onclick = function() {
+      popup.style.display = 'block';
+      popupOverlay.style.display = 'block';
+    };
+
+    // Function to close the popup
+    closeBtn.onclick = function() {
+      popup.style.display = 'none';
+      popupOverlay.style.display = 'none';
+    };
+
+    // Function to redirect to gamerules.html on More button click
+    moreBtn.onclick = function() {
+      window.location.href = 'gamerules.html';
+    };
+
+    // Close the popup if the user clicks outside of it
+    popupOverlay.onclick = function() {
+      popup.style.display = 'none';
+      popupOverlay.style.display = 'none';
+    };
+  </script>
+  <!---------------------------------------------------------------------->
+        <!--<div class="about has-dropdown animate" style="cursor: pointer;" onclick="redirectToReadme()">
+        <span>About</span>
+    </div>-->
+        <div class="about has-dropdown animate">
+          <button
+            class="about has-dropdown animate"
+            style="cursor: pointer"
+            onclick="redirectToReadme()"
+          >
+          <i class="fa-solid fa-circle-info"></i>
+
+            About
+          </button>
+        </div>
+        <div class="about-container animate"></div>
+        <div class="feedback has-dropdown animate" style="cursor: pointer">
+          <button
+            class="about has-dropdown animate"
+            style="cursor: pointer"
+            onclick="redirectToFeedback()"
+          >
+          <i class="fa-solid fa-rss"></i> Feedback
+          </button>
+          <div class="about-container animate"></div>
+          <div class="feedback has-dropdown animate" style="cursor: pointer">
+            <button
+              class="about has-dropdown animate"
+              style="cursor: pointer"
+              onclick="redirectToFAQ()"
+            >
+            <i class="fa-solid fa-question-circle"></i> FAQ
+            </button>
+        </div>
+        <div class="contributor has-dropdown animate" style="cursor: pointer">
+          <a href="contributor.html" style="text-decoration: none;">
+            <button class="about has-dropdown animate" style="cursor: pointer">
+              <i class="fa fa-user-plus" aria-hidden="true"></i> Contributors
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="snowflakes">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+      </div>
+    </div>
+    
+    <div class="game">
+      <div class="hamburger">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="24"
+          height="24"
+          color="#000000"
+          fill="none"
+        >
+          <path
+            d="M4 5L20 5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4 12L20 12"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4 19L20 19"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <div class="heading great-vibes-regular">Conway's Game of Life</div>
+      <audio id="bg-music" src="bgmusic.mp3" loop></audio>      
+<style>
+  /* Optional: Styling for the toggle button */
+  .toggle-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    outline: none;
+  }
+</style>
+      <div class="grid-container">
+        <div id="main-grid" class="main-grid"></div>
+      </div>
+      <div class="controls">
+        <div class="tooltip-container"> <!--Clear Button-->
+          <button
+            class="random-button button-73"
+            id="clear-button"
+            onclick="clearGrid()"
+          >
+            Clear
+          </button>
+          <span class="tooltip-text">Clear the grid</span>
+        </div>
+
+        <div class="tooltip-container"> <!--Play button-->
+          <button
+            class="random-button button-73"
+            id="play-pause-button"
+            onclick="startAnimation()"
+          >
+          <svg id="play-icon" class="icon-svg" width="30" height="30" viewBox="0 0 32 32" fill="none" style="display: block" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 6C1 3.23858 3.23858 1 6 1H26C28.7614 1 31 3.23858 31 6V26C31 28.7614 28.7614 31 26 31H6C3.23858 31 1 28.7614 1 26V6ZM6 3C4.34315 3 3 4.34315 3 6V26C3 27.6569 4.34315 29 6 29H26C27.6569 29 29 27.6569 29 26V6C29 4.34315 27.6569 3 26 3H6Z" fill="var(--fill-col)"/>
+            <path d="M23.5 16.866C24.1667 16.4811 24.1667 15.5189 23.5 15.134L11.5 8.20577C10.8333 7.82087 10 8.302 10 9.0718L10 22.9282C10 23.698 10.8333 24.1791 11.5 23.7942L23.5 16.866Z" fill="var(--fill-col)"/>
+            </svg>
+          <svg id="pause-icon" class="icon-svg" width="30" height="30" viewBox="0 0 32 32" fill="none" style="display: none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 6C1 3.23858 3.23858 1 6 1H26C28.7614 1 31 3.23858 31 6V26C31 28.7614 28.7614 31 26 31H6C3.23858 31 1 28.7614 1 26V6ZM6 3C4.34315 3 3 4.34315 3 6V26C3 27.6569 4.34315 29 6 29H26C27.6569 29 29 27.6569 29 26V6C29 4.34315 27.6569 3 26 3H6Z" fill="var(--fill-col)"/>
+            <path d="M11 10C11 9.44772 11.4477 9 12 9H14C14.5523 9 15 9.44772 15 10V22C15 22.5523 14.5523 23 14 23H12C11.4477 23 11 22.5523 11 22V10Z" fill="var(--fill-col)"/>
+            <path d="M18 9C17.4477 9 17 9.44772 17 10V22C17 22.5523 17.4477 23 18 23H20C20.5523 23 21 22.5523 21 22V10C21 9.44772 20.5523 9 20 9H18Z" fill="var(--fill-col)"/>
+            </svg>
+          </button>
+          <span class="tooltip-text">Start or Pause the animation</span>
+        </div>
+
+        <div class="tooltip-container"> <!--Reduce Speed -->
+          <button
+            class="random-button button-73"
+            id="fast-reverse-button"
+            onclick=slowDown()
+            >
+          <svg class="icon-svg" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 15.0378V9.68977C15 8.80811 13.9419 8.35788 13.3066 8.9692L6.74885 15.2794C6.34001 15.6728 6.34001 16.3272 6.74885 16.7206L13.3066 23.0308C13.9419 23.6421 15 23.1919 15 22.3102V16.9622L21.3066 23.0308C21.9419 23.6421 23 23.1919 23 22.3102V9.68977C23 8.80811 21.9419 8.35788 21.3066 8.9692L15 15.0378Z" fill="var(--fill-col)"/>
+            <path d="M1 6C1 3.23858 3.23858 1 6 1H26C28.7614 1 31 3.23858 31 6V26C31 28.7614 28.7614 31 26 31H6C3.23858 31 1 28.7614 1 26V6ZM6 3C4.34315 3 3 4.34315 3 6V26C3 27.6569 4.34315 29 6 29H26C27.6569 29 29 27.6569 29 26V6C29 4.34315 27.6569 3 26 3H6Z" fill="var(--fill-col)"/>
+            </svg>
+          </button>
+          <span id="reduce-speed-tooltip" class="tooltip-text">Reduce Speed</span>
+        </div>
+          
+      
+        <div class="tooltip-container">
+          <input class="random-button button-73" type= "number" value = '1' id="speedInput" size="0.3" min="0.15" max="25" step="0.25" readonly ></input>
+            <!--Current Speed input-->
+          <span class="tooltip-text">Current Speed</span>
+        </div>
+
+        
+        <div class="tooltip-container"> <!--Increase Speed-->
+          <button             
+              class="random-button button-73"
+              id="fast-forward-button"
+              onclick=fastForward()
+              >
+            <svg class="icon-svg" width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 15.0377L10.6934 8.9692C10.0581 8.35788 9 8.80811 9 9.68977L9 22.3102C9 23.1919 10.0581 23.6421 10.6934 23.0308L17 16.9622V22.3102C17 23.1919 18.0581 23.6421 18.6934 23.0308L25.2512 16.7206C25.66 16.3272 25.66 15.6728 25.2512 15.2794L18.6934 8.9692C18.0581 8.35788 17 8.80811 17 9.68977V15.0377Z" fill="var(--fill-col)"/>
+              <path d="M1 6C1 3.23858 3.23858 1 6 1H26C28.7614 1 31 3.23858 31 6V26C31 28.7614 28.7614 31 26 31H6C3.23858 31 1 28.7614 1 26V6ZM6 3C4.34315 3 3 4.34315 3 6V26C3 27.6569 4.34315 29 6 29H26C27.6569 29 29 27.6569 29 26V6C29 4.34315 27.6569 3 26 3H6Z" fill="var(--fill-col)"/>
+            </svg>
+            </button>
+          <span id="increase-speed-tooltip" class="tooltip-text">Increase Speed</span>
+        </div>
+
+        <div class="tooltip-container"> <!--Random Button-->
+          <button
+            class="random-button button-73"
+            id="random-button"
+            onclick="randomGrid()"
+          >
+            Random
+          </button>
+          <span class="tooltip-text">Random</span>
+        </div>
+
+        <div class="tooltip-container"> <!--Grid Height-->
+            <input class= "random-button button-73" type="number" id="new-height" placeholder="Enter Grid Height" min="1" onchange="GridHeightChange()" />
+          <span class="tooltip-text">Grid Height</span>
+          </div>
+
+            
+        <div class="tooltip-container"> <!--Apply Grid-->
+            <button
+              class="random-button button-73"
+              id="change-grid-button"
+              onclick="changeGridSize(getHeight())">
+              Apply</button>  <!--Random button-->
+          <span class="tooltip-text" id="apply-tooltip">Invalid Grid Height</span>
+        </div>
+
+        <script>
+          GridHeightChange();
+          function GridHeightChange() {
+            height = document.getElementById("new-height").value
+            if (height && height>0)
+            {
+              document.getElementById("apply-tooltip").innerHTML = "Apply Grid Height";
+            } else {
+              document.getElementById("apply-tooltip").innerHTML = "Invalid Grid Height";
+            }
+          }
+        
+        </script>
+        <div id="info-container" >
+          <div id="generation-info" class = "tooltip-container"> 
+            <p>Gen: <span id="generation">0</span></p>
+            <p>Alive <span id="alive">0</span> </p>
+          <span class="tooltip-text" >Generation Info</span>
+          </div>  
+          <div id="status-info" class = "tooltip-container"> 
+            <p>Births <span id="births">0</span> </p>
+            <p>Deaths <span id="deaths">0</span> </p>
+            <span class="tooltip-text">Status Info</span>
+          </div>
+      </div>
+        
+      </div>
+
+    <div class="snowflakes">
+      <div class="snowflake">❅</div>
+      <div class="snowflake">❆</div>
+      <div class="snowflake">❄</div>
+    </div>
+    <script src="./js/app.js"></script>
+    <script src="./js/customTheme.js"></script>
+    <script src="./js/gradient.js"></script>
+    <script src="./js/introduction.js"></script>
+    <script src="./js/speed.js"></script>
+    <script src="./js/animation.js"></script>
+    <script src="./js/music.js"></script>
+    <script src="./js/keyboard-shortcut.js"></script>
+    <script>
+      const preloader = document.getElementById("preloader");
+      const mainContent = document.getElementById("main-content");
+
+
+      function startLoader () {
+          preloader.style.display='flex';
+          // Set a delay before transitioning the preloader and main content
+          setTimeout(function () {
+            preloader.classList.add("hidden");
+            mainContent.classList.remove("hidden");
+            mainContent.classList.add("visible");
+          }, 300); // 2000 milliseconds = 2 seconds delay
+        };
+
+
+        
+      </script>
+    
+    <script>
+      //Custom Cursor
+
+      const coords = { x: 0, y: 0 };
+      const circles = document.querySelectorAll(".circle");
+
+      const colors = [
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#3fbcc0c6",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#3fbcc0c6",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+        "#55a5ea",
+      ];
+      const mainGrid = document.querySelector(".main-grid");
+
+      circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = colors[index % colors.length];
+      });
+      
+      mainGrid.addEventListener("mouseenter", function (e) {
+        circles.forEach(function (circle) {
+          circle.style.display = "block";
+        });
+      });
+
+      mainGrid.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+      });
+      
+      mainGrid.addEventListener("mouseleave", function (e) {
+        circles.forEach(function (circle) {
+          circle.style.display = "none";
+        });
+      });
+
+      function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
+
+        circles.forEach(function (circle, index) {
+          circle.style.left = x - 12 + "px";
+          circle.style.top = y - 12 + "px";
+
+          circle.style.scale = (circles.length - index) / circles.length;
+
+          circle.x = x;
+          circle.y = y;
+
+          const nextCircle = circles[index + 1] || circles[0];
+          x += (nextCircle.x - x) * 0.3;
+          y += (nextCircle.y - y) * 0.3;
+        });
+
+        requestAnimationFrame(animateCircles);
+      }
+
+      animateCircles();
+
+      // Function to toggle dark mode
+      function toggleDarkMode() {
+        const isDarkMode = isDarkModePreferred();
+        setDarkModePreference(!isDarkMode);
+        applyDarkModePreference();
+      }
+
+      // Function to apply dark mode preference
+      function applyDarkModePreference() {
+        const isDarkMode = isDarkModePreferred();
+        if (isDarkMode) {
+          document.body.classList.add("dark-mode");
+          document.getElementById("theme-icon").src =
+            "assets/images/icons8-sun.svg";
+        } else {
+          document.body.classList.remove("dark-mode");
+          document.getElementById("theme-icon").src =
+            "assets/images/moon_solid.svg";
+        }
+      }
+
+      // Function to set dark mode preference
+      document.addEventListener("DOMContentLoaded", () => {
+        const currentTheme = localStorage.getItem("theme");
+        const switchCheckbox = document.getElementById("switch"); // Define switchCheckbox here
+        const starRating = document.querySelector(".star_rating");
+        const thankYouMessage = document.querySelector(".thank_you_message");
+        if (switchCheckbox) {
+          // Check if switchCheckbox is not null
+          function applyDarkModeStyles() {
+            document.body.classList.remove("light-mode");
+            document.body.classList.add("dark-mode");
+            starRating.style.backgroundColor = "#2d2828";
+            thankYouMessage.style.backgroundColor = "#2d2828";
+          }
+
+          function applyLightModeStyles() {
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+            starRating.style.backgroundColor = "white";
+            thankYouMessage.style.backgroundColor = "white";
+          }
+
+          if (currentTheme) {
+            if (currentTheme === "dark-mode") {
+              applyDarkModeStyles();
+              switchCheckbox.checked = true;
+            } else {
+              applyLightModeStyles();
+            }
+          }
+
+          switchCheckbox.addEventListener("change", () => {
+            if (switchCheckbox.checked) {
+              applyDarkModeStyles();
+              localStorage.setItem("theme", "dark-mode");
+            } else {
+              applyLightModeStyles();
+              localStorage.setItem("theme", "light-mode");
+            }
+          });
+        } else {
+          console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
+        }
+      });
+    </script>
+  </body>
+
+  <script>
+    document
+      .getElementById("toggleButton")
+      .addEventListener("click", function () {
+        const sideNav = document.getElementById("sideNav");
+        sideNav.classList.toggle("hide-nav");
+        document.querySelector(".game").classList.toggle("full-width");
+      });
+
+    document.querySelector(".cross").addEventListener("click", function () {
+      const sideNav = document.getElementById("sideNav");
+      sideNav.classList.toggle("hide-nav");
+      document.querySelector(".game").classList.toggle("full-width");
+    });
+
+    let isSmall;
+    function closeNavDeafult(){
+      const setWidth = 750;
+      const currentWidth = window.innerWidth;
+      isSmall=false;
+      const sideNav = document.getElementById("sideNav");
+      if(currentWidth < setWidth){
+        sideNav.classList.add("hide-nav");
+        document.querySelector(".game").classList.add("full-width");
+        isSmall=true;
+      }
+}
+
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+const snowflakesContainer = document.querySelector('.snowflakes');
+
+function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.textContent = ['❅', '❆', '❄'][Math.floor(Math.random() * 3)];
+    snowflake.style.left = Math.random() * 100 + 'vw';
+    snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; // between 2 and 5 seconds
+    snowflake.style.fontSize = Math.random() * 1 + 1 + 'em'; // between 1em and 2em
+    snowflake.style.opacity = Math.random();
+
+    snowflakesContainer.appendChild(snowflake);
+
+    setTimeout(() => {
+        snowflake.remove();
+    }, 5000); // remove snowflake after 5 seconds
+}
+
+setInterval(createSnowflake, 200);
+});
+
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/66891af8eaf3bd8d4d18ca2d/1i24gr9s5';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+</html>
