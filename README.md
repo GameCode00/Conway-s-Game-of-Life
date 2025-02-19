@@ -297,6 +297,9 @@ Explore more patterns at [ConwayLife Patterns](https://conwaylife.com/wiki/Categ
 - [Conway's Game of Life Wiki](https://conwaylife.com/wiki/)
 - [Wikipedia: Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
+## Contact us
+https://x.com/dus_mus0
+
 ---
 
 <div align="center">
