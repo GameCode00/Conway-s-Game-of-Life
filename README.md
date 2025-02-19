@@ -291,9 +291,7 @@ Explore more patterns at [ConwayLife Patterns](https://conwaylife.com/wiki/Categ
 
 ### Try playing it here
 
-- [Play Game of Life]((https://www.alience.icu/))
-- [Conway Life](https://conwaylife.com/)
-
+- [Play Game of Life](https://www.alience.icu/)
 ### Further Reading
 
 - [Conway's Game of Life Wiki](https://conwaylife.com/wiki/)
